@@ -13,7 +13,7 @@ import time
 import subprocess as sb
 from operator import itemgetter
 
-class Swapper:
+class STop:
     def __init__(self):
         swap_info = self.get_swap_info()
         self.SwapTotal = swap_info["SwapTotal"]
@@ -163,5 +163,5 @@ class Swapper:
             time.sleep(5)
 
 
-s = Swapper()
+s = STop()
 s.run()
