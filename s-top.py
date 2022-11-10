@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+"""
+	Developed by Andre Muzel Brisolla
+	Nov 10, 2022
+"""
+
 import json
 import os
 import re
@@ -7,7 +12,6 @@ import sys
 import time
 import subprocess as sb
 from operator import itemgetter
-
 
 class Swapper:
     def __init__(self):
