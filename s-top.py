@@ -129,22 +129,14 @@ class STop:
                     barcolor = "\033[93m"
                 elif swap_perc_usage >= 90:
                     barcolor = "\033[91m"
-             ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-nt(f"{barcolor}█\033[0m", end="")
-            essh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-
-             ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-nt(" ", end="")
-        printssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-}%]".format(swap_perc_usage), end="\n")
-        printssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-
-            "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-;30m\033[47m{: <10}{: <15}{: <10}{: <15}{: <30}\033[0m".format(
-             ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-D", "USER", "%USAGE", "USAGE in kB", "COMMAND"
-            )ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDgmkrofl1+jgZkfV+/dX4ZTduDC4aULboyJOWMZvQbKuDcbzV8wY5x9QzCJO6l5ndJjFzJNww2UzbFsH9C2lP2VV8PbF179J5ODsjsBzUxS2Jla1ctOJVsJX7pvCLC8iyqLpMaE3JhDADI+nSREv+0xZYfAoldaVgLYPXKzX06CzXu1VEmKCjVmf3BOC7PSNv87SiRmNTDBeVAD7u79oikWRfELG/ZOprxNFJGxX8ytnkAbYM3JDYyY+AQaKdFFtbT6IG2cGhCXUNUEbdVPj1rdOdgg6O0f0TLe7i58gf2sCZHHtswLoQ8Ne5n2yxK1E/naaSbA82aVAYs4A43b/h/+vXwKJcx5Fdhu6zdU5Awv6soKkQBII+a/5SxqH8EyA0/ooCmwTPzctWq9K3ahb2Bk1Yt64J4wjuXu015LmDQiAuyod82m48TcC09TryUkwV02XPtY9e0Ov52KYUwovC5Hlq8oJo/+EMtYzsWj7B1l99Jf9cK8MpT84ctgEdz5i0= andre@fedora
-
+                print(f"{barcolor}█\033[0m", end="")
+            else:
+                print(" ", end="")
+        print("| [{}%]".format(swap_perc_usage), end="\n")
+        print(
+            "\033[0;30m\033[47m{: <10}{: <15}{: <10}{: <15}{: <30}\033[0m".format(
+                "PID", "USER", "%USAGE", "USAGE in kB", "COMMAND"
+            )
         )
         itens_to_show = 20
         for idx, proc in enumerate(data):
