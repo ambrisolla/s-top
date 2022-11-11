@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """
-	Developed by Andre Muzel Brisolla
-	Nov 10, 2022
+  Developed by Andre Muzel Brisolla
+  Nov 10, 2022
 """
 
 import os
@@ -12,7 +12,6 @@ import time
 import subprocess as sb
 import argparse
 from   operator import itemgetter
-
 
 class STop:
   
@@ -33,7 +32,6 @@ class STop:
     self.sort_reversed        = kwargs['reversed']
     self.sort_by              = kwargs['sort_by']
     
-
   def get_users(self):
     try:
       cmd = 'cat /etc/passwd'
@@ -156,7 +154,6 @@ class STop:
     while True:
       self.display_data()
       time.sleep(5)
-
 
 if __name__ == '__main__':
   args = argparse.ArgumentParser()
