@@ -20,6 +20,8 @@ class STop:
     swap_info                 = self.get_swap_info()
     self.SwapTotal            = swap_info["SwapTotal"]
     self.users                = self.get_users()
+    # settings
+    self.procs_to_show        = 20
     # set colors
     self.shell_green          = '\033[0;32m'
     self.shell_yellow         = '\033[93m'
@@ -138,7 +140,7 @@ class STop:
              self.shell_black,
              "PID", "USER", "%USAGE", "USAGE in kB", "COMMAND", 
              self.shell_color_finished))
-    itens_to_show = 20
+    
     for idx, proc in enumerate(data):
       pid = proc["pid"]
       try:
@@ -148,7 +150,7 @@ class STop:
       name          = proc["name"]
       swap_consumed = proc["swap_consumed"]
       percent       = proc["percent"]
-      if idx <= itens_to_show:
+      if idx <= self.procs_to_show:
         print("{:<10}{:<15}{:<10}{:<15}{:<20}".
           format(pid, username, percent, swap_consumed, name))
 
