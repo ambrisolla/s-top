@@ -153,9 +153,9 @@ class STop:
           format(pid, username, percent, swap_consumed, name))
 
   def run(self):
-      while True:
-          self.display_data()
-          time.sleep(5)
+    while True:
+      self.display_data()
+      time.sleep(5)
 
 
 s = STop()
