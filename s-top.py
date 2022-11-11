@@ -40,7 +40,7 @@ class STop:
         sys.exit(1)
       else:
         passwd = run.stdout.decode().split("\n")
-        data = [{"username": x.split(":")[0], "uid": int(x.split(":")[2])} for x in passwd if x]
+        data = [ {"username": x.split(":")[0], "uid": int(x.split(":")[2])} for x in passwd if x ]
       return data
     except Exception as err:
       print(f"Error: {str(err)}")
@@ -111,7 +111,7 @@ class STop:
 
   def display_data(self):
     data = self.sort_by(sort_by="")
-    swap_info = dict([[x, self.get_swap_info().get(x)] for x in self.get_swap_info()])
+    swap_info = dict([[ x, self.get_swap_info().get(x)] for x in self.get_swap_info()])
     os.system("clear")
     for info in swap_info:
       key = "{}".format(info)
