@@ -111,10 +111,7 @@ class STop:
 
   def display_data(self):
     data = self.sort_by(sort_by="")
-    swap_info = dict(
-      [[x, self.get_swap_info().get(x)] for x in self.get_swap_info()]
-    )
-    # clear screen
+    swap_info = dict([[x, self.get_swap_info().get(x)] for x in self.get_swap_info()])
     os.system("clear")
     for info in swap_info:
       key = "{}".format(info)
