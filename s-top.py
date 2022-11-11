@@ -18,7 +18,7 @@ class STop:
   
   def __init__(self, **kwargs):
     swap_info                 = self.get_swap_info()
-    self.SwapTotal            = swap_info["SwapTotal"]
+    self.SwapTotal            = swap_info['SwapTotal']
     self.users                = self.get_users()
     # settings
     self.procs_to_show        = 20
@@ -36,14 +36,14 @@ class STop:
 
   def get_users(self):
     try:
-      cmd = "cat /etc/passwd"
+      cmd = 'cat /etc/passwd'
       run = sb.run(cmd, shell=True, stdout=sb.PIPE, stderr=sb.PIPE)
       if run.returncode != 0:
-        print(f"Erro: {run.stderr.decode()}")
+        print(f'Erro: {run.stderr.decode()}')
         sys.exit(1)
       else:
-        passwd = run.stdout.decode().split("\n")
-        data = [ {"username": x.split(":")[0], "uid": int(x.split(":")[2])} for x in passwd if x ]
+        passwd = run.stdout.decode().split('\n')
+        data = [ {'username' : x.split(':')[0], 'uid': int(x.split(':')[2])} for x in passwd if x ]
       return data
     except Exception as err:
       print(f"Error: {str(err)}")
@@ -58,15 +58,15 @@ class STop:
         sys.exit(1)
       else:
         output = run.stdout.decode().split("\n")
-        output_parsed = [ re.sub("\s+|[K,k][B,b]$", "", x)for x in output if x ]
+        output_parsed = [ re.sub('\s+|[K,k][B,b]$', '', x)for x in output if x ]
         output_data = {}
         for item in output_parsed:
-          key = item.split(":")[0]
-          value = item.split(":")[1]
+          key = item.split(':')[0]
+          value = item.split(':')[1]
           output_data[key] = int(value)
       return output_data
     except Exception as err:
-      print(f"Error: {str(err)}")
+      print(f'Error: {str(err)}')
       sys.exit(1)
 
   def get_data(self):
@@ -81,22 +81,22 @@ class STop:
         pids = []
         for item in output:
           if item:
-            pid = item.split("/")[2]
-            if re.search(f"{pid}.*Name", item):
+            pid = item.split('/')[2]
+            if re.search(f'{pid}.*Name', item):
               name = item.split("\t")[-1]
-            if re.search(f"{pid}.*Uid", item):
-              uids = item.split("Uid:")[1]
-              uid = re.sub("\t", ",", uids).split(",")[1]
+            if re.search(f'{pid}.*Uid', item):
+              uids = item.split('Uid:')[1]
+              uid = re.sub('\t', ',', uids).split(',')[1]
             if re.search(f"{pid}.*VmSwap", item):
-              usage = re.sub('VmSwap:\t\s+|[" "]kB', "", item).split(":")[1]
+              usage = re.sub('VmSwap:\t\s+|[" "]kB', '', item).split(':')[1]
               percent = float((int(usage) / self.SwapTotal) * 100)
-              percent_parsed = f"{percent:.1f}"
+              percent_parsed = f'{percent:.1f}'
               pids.append({
-                "pid": int(pid),
-                "name": name,
-                "usage": int(usage),
-                "percent": float(percent_parsed),
-                "uid": uid
+                'pid': int(pid),
+                'name': name,
+                'usage': int(usage),
+                'percent': float(percent_parsed),
+                'uid': uid
                 })
       return pids
     except Exception as err:
@@ -105,10 +105,10 @@ class STop:
 
   def sort(self, **kwargs):
     data = self.get_data()
-    if "sort_by" not in kwargs or kwargs["sort_by"] == "":
-      sort_by = "usage"
+    if 'sort_by' not in kwargs or kwargs['sort_by'] == '':
+      sort_by = 'usage'
     else:
-      sort_by = kwargs["sort_by"]
+      sort_by = kwargs['sort_by']
     data_sorted = sorted(data, key=itemgetter(sort_by), reverse=self.sort_reversed)
     return data_sorted
 
@@ -120,8 +120,8 @@ class STop:
       key = "{}".format(info)
       value = ": {} kB".format(swap_info[info])
       print("{: <20}{: <20} ".format(key, value))
-    swap_perc_usage = int((( swap_info["SwapTotal"] - swap_info["SwapFree"]) / swap_info["SwapTotal"] ) * 100 )
-    print("{:<20}".format("Swap percent usage  : |"), end="")
+    swap_perc_usage = int((( swap_info['SwapTotal'] - swap_info['SwapFree']) / swap_info['SwapTotal'] ) * 100 )
+    print('{:<20}'.format('Swap percent usage  : |'), end='')
     for a in range(0, 50):
       if a <= swap_perc_usage / 2:
         if swap_perc_usage < 80:
@@ -137,19 +137,19 @@ class STop:
     print("{}{}{:<10}{:<15}{:<10}{:<15}{:<30}{}".
       format(self.shell_white, 
              self.shell_black,
-             "PID", "USER", "%USAGE", "USAGE in kB", "COMMAND", 
+             'PID', 'USER', '%USAGE', 'USAGE in kB', 'COMMAND', 
              self.shell_color_finished))
     for idx, proc in enumerate(data):
-      pid = proc["pid"]
+      pid = proc['pid']
       try:
-        username = [ x["username"] for x in self.users if x["uid"] == int(proc["uid"]) ][0]
+        username = [ x['username'] for x in self.users if x['uid'] == int(proc['uid']) ][0]
       except:
-        username = proc["uid"]
-      name          = proc["name"]
-      usage = proc["usage"]
-      percent       = proc["percent"]
+        username = proc['uid']
+      name          = proc['name']
+      usage = proc['usage']
+      percent       = proc['percent']
       if idx <= self.procs_to_show:
-        print("{:<10}{:<15}{:<10}{:<15}{:<20}".
+        print('{:<10}{:<15}{:<10}{:<15}{:<20}'.
           format(pid, username, percent, usage, name))
 
   def run(self):
@@ -157,10 +157,11 @@ class STop:
       self.display_data()
       time.sleep(5)
 
+
 if __name__ == '__main__':
   args = argparse.ArgumentParser()
   args.add_argument('-s', '--sort-by',  help='Sort by column', choices=['name','pid','usage'])
-  args.add_argument('-a', '--asc-sort', help='Asc sort ( default is desc )', action="store_true")
+  args.add_argument('-a', '--asc-sort', help='Asc sort ( default is desc )', action='store_true')
   parsed = vars(args.parse_args())
   sort_by = parsed['sort_by']
   if sort_by == None:
