@@ -119,7 +119,6 @@ class STop:
       print("{: <20}{: <20} ".format(key, value))
     swap_perc_usage = int((( swap_info["SwapTotal"] - swap_info["SwapFree"]) / swap_info["SwapTotal"] ) * 100 )
     print("{:<20}".format("Swap percent usage  : |"), end="")
-    #
     for a in range(0, 50):
       if a <= swap_perc_usage / 2:
         if swap_perc_usage < 80:
@@ -137,7 +136,6 @@ class STop:
              self.shell_black,
              "PID", "USER", "%USAGE", "USAGE in kB", "COMMAND", 
              self.shell_color_finished))
-    
     for idx, proc in enumerate(data):
       pid = proc["pid"]
       try:
