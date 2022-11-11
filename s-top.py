@@ -132,7 +132,7 @@ class STop:
       else:
         print(" ", end="")
     print("| [{}%]".format(swap_perc_usage), end="\n")
-    print("{}{}{:<10}{:<15}{:<10}{:<15}{:<30}{}".
+    print("\n{}{}{:<10}{:<15}{:<10}{:<15}{:<30}{}".
       format(self.shell_white, 
              self.shell_black,
              'PID', 'USER', '%USAGE', 'USAGE in kB', 'COMMAND', 
