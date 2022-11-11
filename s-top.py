@@ -157,10 +157,6 @@ class STop:
       self.display_data()
       time.sleep(5)
 
-
-#s = STop()
-#s.run()
-
 if __name__ == '__main__':
   args = argparse.ArgumentParser()
   args.add_argument('-s', '--sort-by',  help='Sort by column', choices=['name','pid','usage'])
