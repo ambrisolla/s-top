@@ -5,18 +5,18 @@
 	Nov 10, 2022
 """
 
-import json
 import os
 import re
 import sys
 import time
 import subprocess as sb
+import argparse
 from   operator import itemgetter
 
 
 class STop:
   
-  def __init__(self):
+  def __init__(self, **kwargs):
     swap_info                 = self.get_swap_info()
     self.SwapTotal            = swap_info["SwapTotal"]
     self.users                = self.get_users()
@@ -29,6 +29,9 @@ class STop:
     self.shell_white          = '\033[0;30m'
     self.shell_black          = '\033[47m'
     self.shell_color_finished = '\033[0m' 
+    # sort settings
+    self.sort_reversed        = kwargs['reversed']
+    self.sort_by              = kwargs['sort_by']
     
 
   def get_users(self):
@@ -85,13 +88,13 @@ class STop:
               uids = item.split("Uid:")[1]
               uid = re.sub("\t", ",", uids).split(",")[1]
             if re.search(f"{pid}.*VmSwap", item):
-              swap_consumed = re.sub('VmSwap:\t\s+|[" "]kB', "", item).split(":")[1]
-              percent = float((int(swap_consumed) / self.SwapTotal) * 100)
+              usage = re.sub('VmSwap:\t\s+|[" "]kB', "", item).split(":")[1]
+              percent = float((int(usage) / self.SwapTotal) * 100)
               percent_parsed = f"{percent:.1f}"
               pids.append({
                 "pid": int(pid),
                 "name": name,
-                "swap_consumed": int(swap_consumed),
+                "usage": int(usage),
                 "percent": float(percent_parsed),
                 "uid": uid
                 })
@@ -100,17 +103,17 @@ class STop:
       print(f"Error: {str(err)}")
       sys.exit(1)
 
-  def sort_by(self, **kwargs):
+  def sort(self, **kwargs):
     data = self.get_data()
     if "sort_by" not in kwargs or kwargs["sort_by"] == "":
-      sort_by = "swap_consumed"
+      sort_by = "usage"
     else:
       sort_by = kwargs["sort_by"]
-    data_sorted = sorted(data, key=itemgetter(sort_by), reverse=True)
+    data_sorted = sorted(data, key=itemgetter(sort_by), reverse=self.sort_reversed)
     return data_sorted
 
   def display_data(self):
-    data = self.sort_by(sort_by="")
+    data = self.sort(sort_by=self.sort_by)
     swap_info = dict([[ x, self.get_swap_info().get(x)] for x in self.get_swap_info()])
     os.system("clear")
     for info in swap_info:
@@ -143,11 +146,11 @@ class STop:
       except:
         username = proc["uid"]
       name          = proc["name"]
-      swap_consumed = proc["swap_consumed"]
+      usage = proc["usage"]
       percent       = proc["percent"]
       if idx <= self.procs_to_show:
         print("{:<10}{:<15}{:<10}{:<15}{:<20}".
-          format(pid, username, percent, swap_consumed, name))
+          format(pid, username, percent, usage, name))
 
   def run(self):
     while True:
@@ -155,5 +158,22 @@ class STop:
       time.sleep(5)
 
 
-s = STop()
-s.run()
+#s = STop()
+#s.run()
+
+if __name__ == '__main__':
+  args = argparse.ArgumentParser()
+  args.add_argument('-s', '--sort-by',  help='Sort by column', choices=['name','pid','usage'])
+  args.add_argument('-a', '--asc-sort', help='Asc sort ( default is desc )', action="store_true")
+  parsed = vars(args.parse_args())
+  sort_by = parsed['sort_by']
+  if sort_by == None:
+    sort_by = ''
+  if sort_by == 'user':
+    sort_by = 'uid'
+  if parsed['asc_sort']:
+    sort_reverse = False
+  else:
+    sort_reverse = True
+  s = STop(reversed=sort_reverse, sort_by=sort_by)
+  s.run()
