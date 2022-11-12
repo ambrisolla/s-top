@@ -11,5 +11,5 @@ $ ./s-top.py
 ## Screenshot
 <img src='s-top.png'>
 
-## Licence
+## License
 Apache License, Version 2.0, January 2004
